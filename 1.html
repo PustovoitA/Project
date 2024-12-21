@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="2.css">
+  <title>Гра</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body{
+  background-image:url(./clickerImgs/thomas-guillon-alien-lush.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#gamedata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;  
+}
+#enter, #saved  {
+  border: solid, black, 1px;
+  background-color: orange;
+  width: 100px;
+  height: 40px;
+}
+#skin1 {
+  background-image: url(./clickerImgs/skin/gun.jpg);
+  width: 20px;
+  height: 20px;
+}
+
+</style>
+
+<body>
+  
+  <div id="gameData">
+ <input type="Enter your name" placeholder="Enter your name">
+ <select name="select your skin" id="">
+  <option value="">Select your skin</option>
+  <option value="">Skin1</option>
+  <option value="">Skin2</option>
+ <div id="saved">Saved your progress</div>
+ </div>
+</body>
+</html>
