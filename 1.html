@@ -6,10 +6,12 @@
   <link rel="stylesheet" href="2.css">
   <title>Гра</title>
   <link rel="stylesheet" href="style.css">
+
+  <script src="./first_page.js"></script>
 </head>
 <style>
   body{
-  background-image:url(./clickerImgs/thomas-guillon-alien-lush.png);
+  background-image:url(./clickerImgs/bgGame.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -19,37 +21,46 @@
   height: 100vh;
   margin: 0;
 }
-
-#gamedata {
+img {
+  width: 200px;
+  height: 135px;
+  border: solid 5px white;
+}
+input:checked + img {
+  border: solid 5px orange;
+}
+form {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 500px;
-  height: 500px;  
+  flex-direction:column ;
 }
-#enter, #saved  {
-  border: solid, black, 1px;
-  background-color: orange;
-  width: 100px;
-  height: 40px;
+.start-game {
+  background-color: burlywood;
+  border-radius: 5%;
+  color: black;
+  width: 150px;
+  height: 50px;
+  font-size: 25px;
+  
 }
-#skin1 {
-  background-image: url(./clickerImgs/skin/gun.jpg);
-  width: 20px;
-  height: 20px;
-}
+
 
 </style>
 
 <body>
-  <div id="gameData">
- <input type="Enter your name" placeholder="Enter your name">
- <select name="select your skin" id="">
-  <option value="">Select your skin</option>
-  <option value="">Skin1</option>
-  <option value="">Skin2</option>
- <div id="saved">Saved your progress</div>
- </div>
+<form action="javascript:;" onsubmit="save_person( this )">
+  <input type="text" name="username" placeholder="Введіть ім'я персонажа">
+  <label>
+    <input type="radio" name="hand_type" value="1" hidden>
+    <img src="./clickerImgs/skin/hand1.png" alt="Option 1">
+  </label>
+
+  <label>
+    <input type="radio" name="hand_type" value="2" hidden>
+    <img src="./clickerImgs/skin/hand2.png" alt="Option 2">
+  </label>
+  <button class="start-game">Почати гру</button>
+</form>
 </body>
 </html>

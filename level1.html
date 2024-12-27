@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level1:Desert</title>
+</head>
+<style>
+body{
+    background-image: url(./clickerImgs/lvl1/desert-landscape-cactuses-illustration-background-600nw-2393586211.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+.life {
+    width: 50px;
+    height: 50px;
+    background-image: url(./clickerImgs/heart.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#ammo_block {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+#bullet {
+    width: 50px;
+    height: 50px;
+}
+.ammoText {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    color: darkorange;
+}
+#hands {
+    position: absolute;
+    bottom: 0;
+    left: 30vw;
+    width: 40vw;
+    z-index: 10;
+}
+#monster1 {
+    position: absolute;
+    width: 5vw;
+    left: 20vw;
+    bottom: 30vh;
+}
+/* #monster2 {
+    position: absolute;
+    width: 30vw;
+    left: calc(50vw - 15vw);
+    bottom: 30vh;
+} */
+#monster2 {
+    position: absolute;
+    width: 30vw;
+    left: calc(50vw - 15vw);
+    bottom: 20vh;
+}
+#monster3 {
+    position: absolute;
+    width: 5vw;
+    left: 70vw;
+    bottom: 30vh;
+}
+#container {
+    width: 100%;
+    height: 100%;
+}
+.dialog1 {
+    position: absolute;
+    top:20%;
+    right: 40vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:5px;
+    border: solid 5px red;
+    width: 500px;
+    height: 300px;
+   background-color: cadetblue;
+}  
+.text {
+    color: red; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;  
+    text-align: center;     
+}
+.text1 {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+}
+.btn-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    gap: 50px;
+}
+.btn {
+    width: 150px;
+    height: 40px;
+    background-color: chocolate;
+    color: black;
+   
+}
+</style>
+<body>
+    <div id="container">
+        <div class="lifes">
+            <div class="life" id = "life_1"></div>
+            <div class="life" id = "life_2" ></div>
+            <div class="life" id = "life_3"></div>
+        </div>
+        <div id="ammo_block">
+            <span class="ammoText" id="ammoInWeapon">10</span><span class="ammoText"> | </span><span class="ammoText" id="ammo">30</span><img id="bullet" src="./clickerImgs/bullet.png">
+        </div>
+        <img id="hands" src="./clickerImgs/skin/hand1.png">
+        <img class="monster" id="monster1" src="./clickerImgs/lvl1/1.png" hidden>
+        <img class="monster" id="monster2" src="./clickerImgs/lvl1/2.png" hidden>
+        <img class="monster" id="monster3" src="./clickerImgs/lvl1/3.png" hidden>
+    </div>
+    <!-- <div class="dialog1">
+        <span class="text">ВИ ПРОГРАЛИ!</span>
+        <span class="text1">Пройдено рівнів:</span>
+        <span class="text1">Вбито монстрів:</span>
+    </div> -->
+    <!-- <div class="dialog1">
+        <span class="text">МОНСТРИ ДІCТАЛИСЯ ВАШОЇ ДУПИ!</span><br><br><br>
+        <div class="btn-box">
+        <button class="btn">Почати рівень заново</button>
+        <button class="btn">Вийти</button>
+    </div>
+    </div> -->
+    <div class="dialog1">
+        <span class="text">ВИ ВБИЛИ ВСІХ МОНСТРІВ!!!</span>
+        <span class="text1">Пройдено рівнів:</span>
+        <span class="text1">Вбито монстрів:</span>
+    <div class="btn-box">
+            <button class="btn">Наступний рівень</button>
+            <button class="btn">ВИЙТИ</button>
+    </div>
+
+    </div>
+</body>
+<!-- <script src="./common.js"></script>
+<script src="./mosterEngine.js"></script> -->
+</html>
