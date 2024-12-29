@@ -1,0 +1,13 @@
+.level{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 25px;
+    color: #ffff;
+    font-family: "Rubik Mono One", serif;
+    font-weight: 400;
+}
+.level-counter, .kill-counter{
+    display: flex;
+    align-items: center;
+}
