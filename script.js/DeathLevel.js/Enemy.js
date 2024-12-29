@@ -1,16 +1,22 @@
+import { secondLvl } from "./levels.js";
+import { therdLvl } from "./levels.js";
 class Enemy{
     constructor(){
         this.hpEnemy = 100;
+        this.counter = 0;
+        this.timout = 0;
+        this.damage = 0;
+        this.Killcounter = document.querySelector(".kill-counter-item");
         this.enemy = document.querySelector(".enemy");
         this.enemyHpBar = document.querySelector(".enemy-hpBar-item");
     }
 
     damageEnemy=()=>{
-        this.hpEnemy -= 20;
-        this.enemyHpBar.style.width = this.hpEnemy + "%"
+        this.hpEnemy -= this.damage;
+        this.enemyHpBar.style.width = this.hpEnemy + "%";
 
-        if(this.hpEnemy === 0){
-            this.killEnemy()
+        if(this.hpEnemy <= 0){
+            this.killEnemy();
         }
     }
 
@@ -21,7 +27,16 @@ class Enemy{
 
         setTimeout(()=>{
             this.resetEnemy();
-        },500);
+        },this.timout);
+
+        this.counter +=1;
+        if(this.counter === 5){
+            secondLvl();
+        }
+        if(this.counter === 10){
+            therdLvl();
+        }
+        this.Killcounter.textContent = this.counter;
     }
 
     resetEnemy=()=>{
@@ -38,4 +53,4 @@ class Enemy{
         }
     }
 }
-export const Enemy = new Enemy();
+export const enemyDamag = new Enemy();

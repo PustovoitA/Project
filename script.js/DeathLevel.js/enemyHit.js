@@ -1,8 +1,10 @@
-import { Enemy } from "./Enemy.js";
+import { enemyDamag } from "./Enemy.js";
 import { hit } from "./damageEnemyObserver.js";
-hit.subscribe(Enemy.damageEnemy);
+import { firstLvl } from "./levels.js";
+firstLvl();
+hit.subscribe(enemyDamag.damageEnemy);
 
-const enemyItem = document.querySelector(".enemy-item");
+export const enemyItem = document.querySelector(".enemy-item");
 
 enemyItem.addEventListener("click",()=>{
     hit.broadcast();
