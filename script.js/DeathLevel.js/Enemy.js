@@ -44,8 +44,6 @@ class Enemy{
     resetEnemy=()=>{
         this.hpEnemy = 100;
         this.enemyHpBar.style.width = this.hpEnemy + "%";
-        // this.enemyHpBar.style.height = 20 + "px";
-        // console.log(this.enemyHpBar);
 
         let left = Math.floor(Math.random()*80);
         let top = Math.floor(Math.random()*80);
