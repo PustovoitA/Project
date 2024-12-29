@@ -1,0 +1,9 @@
+.help{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #ffff;
+    font-size: 25px;
+    font-family: "Rubik Mono One", serif;
+    font-weight: 400;
+}
