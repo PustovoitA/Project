@@ -1,0 +1,21 @@
+.health{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.main-character-img{
+    width: 60px;
+    height: 75px;
+}
+.health-bar{
+    height: 30px;
+    width: 250px;
+    border-radius: 8px;
+    background-color: #aaa4a4;
+}
+.health-bar-item{
+    height: 100%;
+    width: 100%;
+    background-color: #cf1010;
+    border-radius: 8px;
+}
