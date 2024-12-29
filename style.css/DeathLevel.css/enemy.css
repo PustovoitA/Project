@@ -1,0 +1,21 @@
+.enemy {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 150px;
+    height: 170px;
+    position: absolute;
+}
+.enemy-hpBar {
+    height: 20px;
+    width: 150px;
+    border-radius: 4px;
+    background-color: #aaa4a4;
+}
+.enemy-hpBar-item {
+    height: 100%;
+    width: 100%;
+    background-color: #cf1010;
+    border-radius: 4px;
+}
