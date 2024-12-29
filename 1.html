@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="2.css">
   <title>Гра</title>
   <link rel="stylesheet" href="style.css">
-
-  <script src="./first_page.js"></script>
 </head>
 <style>
   body{
@@ -23,7 +21,7 @@
 }
 img {
   width: 200px;
-  height: 135px;
+  height: 120px;
   border: solid 5px white;
 }
 input:checked + img {
@@ -35,22 +33,43 @@ form {
   align-items: center;
   flex-direction:column ;
 }
-.start-game {
+#start-game, #resume-game {
   background-color: burlywood;
   border-radius: 5%;
   color: black;
-  width: 150px;
+  width: 250px;
   height: 50px;
   font-size: 25px;
-  
 }
+/* #resume-game {
+  display: none;
+  position: absolute;
+  bottom: 210px;
 
-
+  
+} */
+.help {
+  position: absolute;
+  color:white;
+  border: solid 3px burlywood;
+  background-color: burlywood;
+  font-size: 30px;
+  right: 30px;
+}
+.help1 {
+  top: 100px;
+}
+.info {
+  top: 200px;
+}
+.parachute {
+  top: 300px;
+}
 </style>
 
 <body>
-<form action="javascript:;" onsubmit="save_person( this )">
-  <input type="text" name="username" placeholder="Введіть ім'я персонажа">
+<form action="javascript:;" onsubmit="createPerson( this )">
+  <input type="text" name="username" placeholder="Введіть ім'я персонажа" required>
   <label>
     <input type="radio" name="hand_type" value="1" hidden>
     <img src="./clickerImgs/skin/hand1.png" alt="Option 1">
@@ -60,7 +79,13 @@ form {
     <input type="radio" name="hand_type" value="2" hidden>
     <img src="./clickerImgs/skin/hand2.png" alt="Option 2">
   </label>
-  <button class="start-game">Почати гру</button>
+  <button type="submit" id="start-game">Почати нову гру</button>
+  <button type="button" id="resume-game">Продовжити гру</button>
 </form>
+<div class="help help1">Для перезарядки натисніть ПРОБІЛ</div>
+<div class="help info">Вбиваємо монстра по ЛІВОМУ КЛІКУ мишки </div>
+<div class="help parachute">ПАРАШУТ - додаткова амуніція </div>
+
 </body>
+<script src="./common.js"></script>
 </html>
