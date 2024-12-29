@@ -17,7 +17,7 @@ export const secondLvl=()=>{
     lvl.textContent = counterLvl;
     counterLvl += 1;
 }
-export const therdLvl=()=>{
+export const thirdLvl=()=>{
     enemyItem.src = "./img/DeathLevel.img/enemy3.gif";
     enemyDamag.timout = 300;
     enemyDamag.damage = 20;

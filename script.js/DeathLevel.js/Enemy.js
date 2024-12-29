@@ -1,5 +1,5 @@
 import { secondLvl } from "./levels.js";
-import { therdLvl } from "./levels.js";
+import { thirdLvl } from "./levels.js";
 class Enemy{
     constructor(){
         this.hpEnemy = 100;
@@ -25,16 +25,18 @@ class Enemy{
             this.enemy.remove();
         }
 
+
         setTimeout(()=>{
             this.resetEnemy();
         },this.timout);
+
 
         this.counter +=1;
         if(this.counter === 5){
             secondLvl();
         }
         if(this.counter === 10){
-            therdLvl();
+            thirdLvl();
         }
         this.Killcounter.textContent = this.counter;
     }
@@ -42,6 +44,8 @@ class Enemy{
     resetEnemy=()=>{
         this.hpEnemy = 100;
         this.enemyHpBar.style.width = this.hpEnemy + "%";
+        // this.enemyHpBar.style.height = 20 + "px";
+        // console.log(this.enemyHpBar);
 
         let left = Math.floor(Math.random()*80);
         let top = Math.floor(Math.random()*80);
