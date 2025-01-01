@@ -1,5 +1,6 @@
 import { enemyDamag } from "./Enemy.js";
 import { enemyItem } from "./enemyHit.js";
+import { MainPlayer } from "./MainPlayer.js";
 
 class Levels {
     constructor(){
@@ -12,6 +13,8 @@ class Levels {
         enemyDamag.damage = 50;
         this.lvl.textContent = this.counterLvl;
         this.counterLvl += 1;
+        MainPlayer.damage = 10;
+        MainPlayer.intervalDamage = 3500;
     }
 
     secondLvl=()=>{
