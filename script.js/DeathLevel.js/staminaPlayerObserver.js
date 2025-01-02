@@ -16,4 +16,4 @@ class PlayerObserver{
         .filter(callback => callback !== funck);
     }
 }
-export const MainPlayerObserver = new PlayerObserver();
+export const staminaPlayerObserver = new PlayerObserver();

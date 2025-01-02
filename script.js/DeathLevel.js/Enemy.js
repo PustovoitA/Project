@@ -1,5 +1,6 @@
 // import { secondLvl } from "./levels.js";
 // import { thirdLvl } from "./levels.js";
+import { stamina } from "./stamina.js";
 import { newLevel } from "./levels.js";
 class Enemy{
     constructor(){
@@ -22,8 +23,10 @@ class Enemy{
     }
 
     killEnemy=()=>{
+
         if(this.enemy){
             this.enemy.remove();
+            stamina();
         }
 
 
