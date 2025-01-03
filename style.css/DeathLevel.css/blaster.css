@@ -2,3 +2,12 @@
     height: 90%;
     border-radius: 6px;
 }
+
+@keyframes recoil {
+    0% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(-5px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+.shooting{
+    animation: recoil 0.1s ease;
+}
