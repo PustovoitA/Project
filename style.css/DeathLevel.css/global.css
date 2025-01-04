@@ -6,8 +6,11 @@ body{
 }
 body{
     background-image: url(/img/DeathLevel.img/backgroung.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .container{
+    position: absolute;
     width: 100%;
     height: 100%;
 }

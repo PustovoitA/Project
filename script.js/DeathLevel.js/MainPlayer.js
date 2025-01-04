@@ -1,5 +1,5 @@
 import { enemyDamag } from "./Enemy.js";
-
+import { modal } from "./modal.js";
 
 class Player {
     constructor(){
@@ -11,7 +11,7 @@ class Player {
     }
 
     killPlayer=()=>{
-        
+        modal();
     }
 }
 

@@ -2,6 +2,7 @@
 // import { thirdLvl } from "./levels.js";
 import { stamina } from "./stamina.js";
 import { newLevel } from "./levels.js";
+import { modal } from "./modal.js";
 class Enemy{
     constructor(){
         this.hpEnemy = 100;
@@ -41,6 +42,9 @@ class Enemy{
         }
         if(this.counter === 10){
             newLevel.thirdLvl();
+        }
+        if(this.counter === 15){
+            modal();
         }
         this.Killcounter.textContent = this.counter;
     }
