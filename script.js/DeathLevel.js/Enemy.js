@@ -1,5 +1,3 @@
-// import { secondLvl } from "./levels.js";
-// import { thirdLvl } from "./levels.js";
 import { stamina } from "./stamina.js";
 import { newLevel } from "./levels.js";
 import { modal } from "./modal.js";
@@ -31,7 +29,7 @@ class Enemy{
         }
 
 
-        setTimeout(()=>{
+        let id = setTimeout(()=>{
             this.resetEnemy();
         },this.timout);
 
@@ -44,6 +42,7 @@ class Enemy{
             newLevel.thirdLvl();
         }
         if(this.counter === 15){
+            clearTimeout(id);
             modal();
         }
         this.Killcounter.textContent = this.counter;
