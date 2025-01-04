@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css/app.css">
     <script type="module" src="./script.js/DeathLevel.js/enemyHit.js"></script>
+    <script type="module" src="./script.js/DeathLevel.js/LocalStorage.js"></script>
+    <script type="module" src="./script.js/DeathLevel.js/PlayerFunc.js"></script>
+    <script type="module" src="./script.js/DeathLevel.js/shot.js"></script>
     <title>DeathLevel</title>
 </head>
 <body>
@@ -16,8 +19,13 @@
         <header class="header">
             <div class="health">
                 <img class="main-character-img" src="./img/DeathLevel.img/doom2016gif-pixel-art.gif" alt="main character">
-                <div class="health-bar">
-                    <div class="health-bar-item"></div>
+                <div class="stat-player">
+                    <div class="health-bar">
+                        <div class="health-bar-item"></div>
+                    </div>
+                    <div class="stamina">
+                        <div class="stamina-item"></div>
+                    </div>
                 </div>
             </div>
             <div class="level">
@@ -42,9 +50,17 @@
                 <img class="enemy-item" src="./img/DeathLevel.img/enemy1.gif" alt="enemy">
             </div>
         </main>
-        <footer class="footer"></footer>
+        <footer class="footer">
+            <img class="img-blaster" src="./img/DeathLevel.img/pngegg.png" alt="blaster">
+        </footer>
     </div>
 
+    <div class="modal-window">
+        <div class="modal-window-item">
+            <a class="button-repeat" href="DeathLevel.html">Repeat</a>
+            <a class="button-next" href="1.html">Next</a>
+        </div>
+    </div>
 
 </body>
 </html>

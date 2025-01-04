@@ -1,5 +1,8 @@
-import { secondLvl } from "./levels.js";
-import { thirdLvl } from "./levels.js";
+// import { secondLvl } from "./levels.js";
+// import { thirdLvl } from "./levels.js";
+import { stamina } from "./stamina.js";
+import { newLevel } from "./levels.js";
+import { modal } from "./modal.js";
 class Enemy{
     constructor(){
         this.hpEnemy = 100;
@@ -21,8 +24,10 @@ class Enemy{
     }
 
     killEnemy=()=>{
+
         if(this.enemy){
             this.enemy.remove();
+            stamina();
         }
 
 
@@ -33,10 +38,13 @@ class Enemy{
 
         this.counter +=1;
         if(this.counter === 5){
-            secondLvl();
+            newLevel.secondLvl();
         }
         if(this.counter === 10){
-            thirdLvl();
+            newLevel.thirdLvl();
+        }
+        if(this.counter === 15){
+            modal();
         }
         this.Killcounter.textContent = this.counter;
     }
