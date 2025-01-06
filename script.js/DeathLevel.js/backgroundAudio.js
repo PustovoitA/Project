@@ -1,8 +1,9 @@
 let bgSound = document.createElement("audio");
 bgSound.src = "./audio/DeathLevel/backgroundAudio.mp3";
-function backgroundAudio(){
+
+export function backgroundAudio(){
     bgSound.play();
-    bgSound.volume = 0.20;
+    bgSound.volume = 0.10;
     bgSound.loop = true;
 }
 backgroundAudio();
