@@ -3,5 +3,5 @@ audioShot.src = "./audio/DeathLevel/shot.mp3";
 
 export function soundOfShot(){
     audioShot.play();
-    audioShot.valume = 0.30;
+    audioShot.valume = 0.20;
 }

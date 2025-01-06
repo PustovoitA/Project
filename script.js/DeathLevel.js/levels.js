@@ -1,6 +1,5 @@
 import { enemyDamag } from "./Enemy.js";
 import { enemyItem } from "./enemyHit.js";
-import { MainPlayer } from "./MainPlayer.js";
 import {Interval} from "./IntervalDamage.js";
 import { idInterval } from "./IntervalDamage.js";
 

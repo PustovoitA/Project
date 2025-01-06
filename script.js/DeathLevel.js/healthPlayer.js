@@ -1,5 +1,5 @@
 import { MainPlayer } from "./MainPlayer.js";
-import { staminaCounter, staminaItem, setValue, getValue} from "./stamina.js";
+import { staminaItem, setValue, getValue } from "./stamina.js";
 
     export function heal(){
     document.addEventListener("keydown",(event)=>{
@@ -10,5 +10,5 @@ import { staminaCounter, staminaItem, setValue, getValue} from "./stamina.js";
             setValue(0);
             staminaItem.style.width = getValue() + "%";
         }
-    })
+    });
 }
