@@ -7,9 +7,9 @@ const body = document.getElementById('container');
 let namePlayer = document.getElementById('name');
 const elmFinishedLevels = document.getElementsByClassName('finished_levels');
 const elmKilledMonsters = document.getElementsByClassName('killed_monsters');
-let audioHit = './clickerImgs/music/pistolet-vystrel-6.mp3';
-let audioReload = './clickerImgs/music/zvuk-perezariadki-pistoleta-435.mp3';
-let audioEmpty = './clickerImgs/music/7b68ed3d8095bba.mp3';
+let audioHit = 'clickerImgs/music/pistolet-vystrel-6.mp3';
+let audioReload = 'clickerImgs/music/zvuk-perezariadki-pistoleta-435.mp3';
+let audioEmpty = 'clickerImgs/music/7b68ed3d8095bba.mp3';
 let h = 0;
 let audio;
 let monstersPerThisLevel = 0;
@@ -71,7 +71,7 @@ class Monster {
 
         this.draw();
 
-        this.element.src = `./clickerImgs/lvl1/${getRandomInt(3) + 1}.png`
+        this.element.src = `clickerImgs/lvl1/${getRandomInt(3) + 1}.png`
         this.element.style.display = 'block';
         h = this.element.offsetHeight;
         this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${h}px + 10px)`;
@@ -178,7 +178,7 @@ function modifyScore() {
 }
 
 function modifyHands() {
-    document.getElementById('hands_img').src = `./clickerImgs/skin/hand${handType}.png`;
+    document.getElementById('hands_img').src = `clickerImgs/skin/hand${handType}.png`;
 }
 function modifyName(){
     namePlayer.innerHTML=userName;
@@ -196,8 +196,6 @@ let levelKilledMonsters = 0;
 function preloadAudio() {
     [audioHit, audioEmpty, audioReload].forEach(src => {
         audio = new Audio(src);
-        audio.play()
-        audio.pause()
     })
 }
 

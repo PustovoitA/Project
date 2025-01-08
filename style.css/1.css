@@ -1,5 +1,5 @@
 body{
-    background-image:url(./clickerImgs/bgGame.png);
+    background-image:url(../clickerImgs/bgGame.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -23,7 +23,7 @@ body{
     align-items: center;
     flex-direction:column ;
   }
-  #start-game, #resume-game {
+  #start-game, #resume-game, #create-user {
     background-color: burlywood;
     border-radius: 5%;
     color: black;
