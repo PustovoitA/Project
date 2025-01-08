@@ -97,21 +97,30 @@ function loadPerson() {
 
 loadPerson();
 
-reloadLevel.addEventListener ('click',()=> {
-    window.location.reload();
-})
+if (reloadLevel) {
+    reloadLevel.addEventListener ('click', ()=> {
+        window.location.reload();
+    })
+}
 
-returnToFirstPage.addEventListener ('click', ()=> {
-    window.location.href = './1.html';
-})
+if (returnToFirstPage) {
+    returnToFirstPage.addEventListener ('click', ()=> {
+        window.location.href = './1.html';
+    })
+}
 
-exit.addEventListener('click', ()=> {
-    window.location.href = './1.html';
-})
+if (exit) {
+    exit.addEventListener('click', ()=> {
+        window.location.href = './1.html';
+    })
+}
 
-exit1.addEventListener('click', ()=> {
-    window.location.href = './1.html';
-})
+if (exit1) {
+    exit1.addEventListener('click', ()=> {
+        window.location.href = './1.html';
+    })
+}
+
 
 if (startGame) { 
     startGame.addEventListener ('click', ()=> {
@@ -119,6 +128,8 @@ if (startGame) {
     })
 }
 
-nextLevel.addEventListener('click', ()=> {
-    window.location.href = `./level${getNextLevel()}.html`;
-})
+if (nextLevel) {
+    nextLevel.addEventListener('click', ()=> {
+        window.location.href = `./level${getNextLevel()}.html`;
+    })
+}
