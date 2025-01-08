@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+.modal-window {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #00000054;
+}
+.modal-window-item {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    flex-direction: column;
+    height: 350px;
+    width: 500px;
+    border-radius: 15px;
+    gap: 15px;
+    background-color: #fff;
+}
+.modal-window-item a{
+    text-decoration: none;
+    color: #000;
+}
+.button-repeat, .button-next {
+    font-family: "Rubik Mono One", serif;
+    font-weight: 400;
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000;
+    border-radius: 4px;
+    padding: 10px 0;
+    width: 100px;
+}
+.score-text{
+    font-family: "Rubik Mono One", serif;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px 0;
+    width: 100px;
+}
+.buttons-container {
+    display: flex; 
+    justify-content: center; 
+    width: 100%;
+}
+
+.button-repeat, .button-next {
+    margin: 0 5px; 
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000;
+    border-radius: 4px;
+    padding: 10px 0;
+    width: 100px;
+}

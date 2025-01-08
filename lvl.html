@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-2</title>
+
+    <link rel="stylesheet" href="modalWindow.css">
+    <link rel="stylesheet" href="enemy.css">
+    <link rel="stylesheet" href="gamer.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script type="module" src="enemy.js"></script>
+    <script type="module" src="hpBar.enemy.js"></script>
+    <script type="module" src="playerHpBar.js"></script>
+    <script type="module" src="score.js"></script>
+</head>
+
+<body class="flex column">
+
+    <div class="infoHp flex">
+        <div class="hpBox ">
+            <div class="hpBar-1"> </div>
+            <div id="hpBar"> </div>
+          
+        </div>
+        <span class="score flex">
+            <b class="scoreTxt">Score:</b>
+            <b><b id="killedEnemy">0</b>/15</b>
+        </span>
+    </div>
+    <div class="main flex column" id="main">
+        <img class="hands" src="img/pngegg.png" alt="">
+        <div id="BoxEnemy"></div>
+
+
+    </div>
+    <div id="modal-window" class="modal-window">
+        <div class="modal-window-item">
+            <div class="score-container">
+                <span class="score-text">Ваш рахунок: <b id="scoreTxt"> </b></span>
+            </div>
+            <div class="buttons-container">
+                <a class="button-repeat" href="lvl.html">Repeat</a>
+                <a class="button-next" href="DeathLevel.html">Next</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

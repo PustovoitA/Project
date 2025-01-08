@@ -1,0 +1,40 @@
+.hpBox {
+    height: 100%;
+    width: 50%;
+}
+
+#hpBar {
+    height: 40px;
+    width: 300px;
+    background-image: linear-gradient(to left, #8c0000, #a70103, #c40305, #e10607, #ff0909);
+    position: absolute;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
+.hpBar-1 {
+    height: 40px;
+    width: 300px;
+    background-color: rgba(211, 211, 211, 0.613);
+    position: absolute;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+.hands {
+    height: 45%;
+    width: 40%;
+    position: absolute;
+    top: 55%;
+    right: 25%;
+    animation: handsAnimation 1s infinite alternate linear;
+}
+
+@keyframes handsAnimation {
+    0% {
+        right: 30%;
+    }
+
+    100% {
+        right: 45%;
+    }
+}
