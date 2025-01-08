@@ -1,0 +1,46 @@
+body {
+    background-image: url(img/bac\ копія.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.infoHp {
+    height: 50px;
+    width: 100%;
+    gap: 15%;
+}
+
+.main {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+.score {
+    font-size: 110%;
+    width: 30%;
+    background-image: radial-gradient(circle, #9d007b, #a60096, #a900b5, #a400d8, #9000ff);
+    margin-top: 2%;
+    color: white;
+    gap: 5%;
+    padding: 0px;
+    border-radius: 10px;
+    font-family: "Rubik Mono One", serif;
+}
+.scoreTxt{
+    font-family: "Rubik Mono One", serif;
+
+}

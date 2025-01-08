@@ -1,0 +1,51 @@
+
+.imgBox {
+    height: 25%;
+    width: 15%;
+    animation: enemyAnimationGof 1s infinite alternate linear;
+    position: absolute;
+}
+.hpBarContainer {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(211, 211, 211, 0.613);
+    border-radius: 10px;
+}
+
+.hpBar {
+    height: 10%;
+    width: 100%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.hpColor {
+    background-image: linear-gradient(to left, #8c0000, #a70103, #c40305, #e10607, #ff0909);
+    position: absolute;
+    top: 0%;
+}
+.imgEnemy {
+    height: 90%;
+    width: 100%;
+    animation: enemyAnimation 1s infinite alternate linear;
+}
+
+@keyframes enemyAnimationGo {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+@keyframes enemyAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
