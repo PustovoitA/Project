@@ -16,10 +16,13 @@ const decreaseHP = (damage) => {
     updateHPBar()
 
     if (playerHP <= 0) {
-        // defeat();
+        clearInterval(playerHpInterval)
+        defeat();
         document.getElementById("modal-window").style.display = "flex";
     }
 };
+
+let playerHpInterval= setInterval(() => decreaseHP(20), 1500);
 
 const increaseHP = (heal) => {
     playerHP += heal;
@@ -35,7 +38,6 @@ document.addEventListener("keydown", (event) => {
 })
 
 
-setInterval(() => decreaseHP(20), 1500);
 
 playerObserv.subscribe(updateHPBar)
 

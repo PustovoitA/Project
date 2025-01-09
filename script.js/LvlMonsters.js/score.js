@@ -13,6 +13,6 @@ export const numLocal =()=>{
     document.getElementById("scoreTxt").textContent = localStorage.length;
 }
 
-ObserverKill .subscribe(numLocal)
+//ObserverKill .subscribe(numLocal)
 ObserverKill .subscribe(score )
 
