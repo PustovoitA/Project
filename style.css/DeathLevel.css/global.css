@@ -2,10 +2,10 @@ html,
 body{
     margin: 0;
     height: 100%;
-    cursor: url("./img/DeathLevel.img/cursor.png"), auto;
+    cursor: url("../../img/DeathLevel.img/cursor.png"), auto;
 }
 body{
-    background-image: url(./img/DeathLevel.img/backgroung.webp);
+    background-image: url(../../img/DeathLevel.img/backgroung.webp);
     background-size: cover;
     background-repeat: no-repeat;
 }
