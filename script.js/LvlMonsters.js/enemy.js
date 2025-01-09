@@ -91,13 +91,9 @@ const spawnEnemies = () => {
         let enemy = new Enemy(enemyImages[numEnemy] || "default_enemy.png");
         document.getElementById("BoxEnemy").appendChild(enemy.createElement(numEnemy));
         numEnemy++;
-<<<<<<< HEAD
-    } else if (killed.textContent === "15") {
-=======
     } else {
         saveProgress(numEnemy);
         clearInterval(spawnEnemiesProcess);
->>>>>>> main
         document.getElementById("modal-window").style.display = "flex";
     }
 };
