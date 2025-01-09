@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css/level1.css">
+    <link rel="stylesheet" href="./style.css/FirstLevel/level1.css">
+    <link rel="stylesheet" href="./style.css/DeathLevel.css/modal.css">
     <title>Level1:Desert</title>
 </head>
 
 <body>
     <div id="container">
-        <div class="lifes">
-            <div class="life" id = "life_1"></div>
-            <div class="life" id = "life_2" ></div>
-            <div class="life" id = "life_3"></div>
-        </div>
         <div id="ammo_block">
             <span class="ammoText" id="ammoInWeapon">10</span><span class="ammoText"> | </span><span class="ammoText" id="ammo">30</span><img id="bullet" src="./clickerImgs/bullet.png">
         </div>
@@ -26,40 +22,34 @@
         <div class="monster_healthbar_block" id = "monster_healthbar_block_3">
             <div class="health_red" id="health_red_3"></div><div class="health_grey" id="health_grey_3"></div>
         </div>
+
+        <div class="modal-window" id="modal-window">
+            <div class="modal-info">
+                <span class="modal-title" id="modal-title">Game over!</span>
+                <div class="lifes">
+                    <div class="life" id = "life_1"></div>
+                    <div class="life" id = "life_2"></div>
+                    <div class="life" id = "life_3"></div>
+                </div>
+                <span class="modal-info-text">Total levels: </span><span class="modal-info-text" id="finished-levels"></span>
+                <span class="modal-info-text">Total kills: </span><span class="modal-info-text" id="killed-monsters"></span>
+            </div>
+            <div class="modal-window-item">
+                <a class="button-repeat" href="level1.html">Repeat</a>
+                <a class="button-next" href="DeathLevel.html">Next</a>
+                <a class="button-exit" href="index.html">Exit</a>
+            </div>
+        </div>
+
         <img id="ammo_box" src="./clickerImgs/parashute.png">
         <img class="monster" id="monster1" src="./clickerImgs/lvl1/1.png" hidden>
         <img class="monster" id="monster2" src="./clickerImgs/lvl1/2.png" hidden>
         <img class="monster" id="monster3" src="./clickerImgs/lvl1/3.png" hidden>
-        <!-- <div id="hands"> -->
-            <img id="hands_img" src="./clickerImgs/skin/hand1.png">
-        <!-- </div> -->
-    </div>
-    <div class="dialog1" id='modal_1'>
-        <span class="text">ВИ ПРОГРАЛИ!</span>
-        <span class="text1">Пройдено рівнів: </span><span class="text1 finished_levels"></span>
-        <span class="text1">Вбито монстрів: </span><span class="text1 killed_monsters"></span>
-        <div class="btn-box">
-            <button class="btn" id="returnToFirstPage">Почати заново</button>
-        </div>
-    </div>
-    <div class="dialog1" id='modal_2'>
-        <span class="text">МОНСТРИ ДІCТАЛИСЯ ВАШОЇ ДУПИ!</span><br><br><br>
-        <div class="btn-box">
-            <button class="btn" id="levelReload">Почати рівень заново</button>
-            <button class="btn" id="exit">Вийти</button>
-        </div>
-    </div>
-    <div class="dialog1" id='modal_3'>
-            <span class="text">ВИ ВБИЛИ ВСІХ МОНСТРІВ!!!</span>
-            <span class="text1">Пройдено рівнів: </span><span class="text1 finished_levels">10</span>
-            <span class="text1">Вбито монстрів: </span><span class="text1 killed_monsters">1000</span>
-        <div class="btn-box">
-            <button class="btn" id="nextLevel">Наступний рівень</button>
-            <button class="btn" id="exit1">ВИЙТИ</button>
-        </div>            
+        <img id="hands_img" src="./clickerImgs/skin/hand1.png">
     </div>
     <div id="name"></span> </div>
+    <div class="help help1">Shot - LKM, Reload - SPACE</div>
+    <div class="help parachute">Parashute - additional ammo</div>
 </body>
-<script src="./script.js/common.js"></script>
-<script src="./script.js/mosterEngine.js"></script>
+<script type="module" src="./script.js/FirstLevel/mosterEngine.js"></script>
 </html>

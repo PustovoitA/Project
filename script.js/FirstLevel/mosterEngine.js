@@ -1,30 +1,33 @@
-// import {level, ammo, life, ammoInWeapon, handType} from "./common.js"
-const life3 = document.getElementById('life_3');
-const life2 = document.getElementById('life_2');
+import * as settings from './settings.js'
+import { defeat, saveProgress, getRandomInt, showModal } from '../common.js';
+
+let ammo = settings.defaultInitialAmmo;
+let ammoInWeapon = settings.defaultAmmoInWeapon;
+
 const elmAmmoInWeapon = document.getElementById('ammoInWeapon');
 const elmAmmo = document.getElementById('ammo');
 const body = document.getElementById('container');
+
 let namePlayer = document.getElementById('name');
-const elmFinishedLevels = document.getElementsByClassName('finished_levels');
-const elmKilledMonsters = document.getElementsByClassName('killed_monsters');
+
 let audioHit = 'clickerImgs/music/pistolet-vystrel-6.mp3';
 let audioReload = 'clickerImgs/music/zvuk-perezariadki-pistoleta-435.mp3';
 let audioEmpty = 'clickerImgs/music/7b68ed3d8095bba.mp3';
-let h = 0;
 let audio;
 let monstersPerThisLevel = 0;
+const handType = 1;
 
 
 class AmmoBox {
     constructor() {
         this.isActive = false;
         this.time = 0;
-        this.ammo = 10;
+        this.ammo = settings.boxAmmo;
         this.element = document.getElementById('ammo_box');
     }
     tic() {
         this.time += 1;
-        if (this.time === 10) {
+        if (this.time === settings.boxLiveTime) {
             this.isActive = false;
             this.element.style.display = 'none';
         }
@@ -42,11 +45,11 @@ class AmmoBox {
         ammo += this.ammo;
         modifyAmmo()
     }
-
 }
 
+
 class Monster {
-    constructor(elm_id, left) {
+    constructor(elm_id=1, left=20) {
         this.isAlive = false;
         this.left = left;
         this.bottom = 30;
@@ -62,7 +65,7 @@ class Monster {
         }
         levelMonsters += 1;
         this.isAlive = true;
-        this.health = defaultMonsterHealth;
+        this.health = settings.defaultMonsterHealth;
         this.width = 5;
         this.bottom = 25;
         this.healthbar_height = 10;
@@ -73,8 +76,7 @@ class Monster {
 
         this.element.src = `clickerImgs/lvl1/${getRandomInt(3) + 1}.png`
         this.element.style.display = 'block';
-        h = this.element.offsetHeight;
-        this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${h}px + 10px)`;
+        this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${this.element.offsetHeight}px + 10px)`;
         this.healthbar_block.style.display = 'block';
     }
 
@@ -83,9 +85,9 @@ class Monster {
         if (this.health === 0) {
             this.kill()
         }
-        this.red_healthbar.style.width = `calc(${this.width}vw / ${defaultMonsterHealth} * ${this.health})`;
+        this.red_healthbar.style.width = `calc(${this.width}vw / ${settings.defaultMonsterHealth} * ${this.health})`;
         this.grey_healthbar.style.width = 
-        `calc(${this.width}vw / ${defaultMonsterHealth} * (${defaultMonsterHealth} - ${this.health}))`;
+        `calc(${this.width}vw / ${settings.defaultMonsterHealth} * (${settings.defaultMonsterHealth} - ${this.health}))`;
     }
 
     kill() {
@@ -94,7 +96,9 @@ class Monster {
         this.healthbar_block.style.display = 'none';
         levelKilledMonsters += 1;
         if (levelKilledMonsters === monstersPerThisLevel) {
-            finishLevel();
+            clearInterval(progressMonsterMove);
+            saveProgress(monstersPerThisLevel);
+            showModal('.modal-window');
         }
     }
 
@@ -102,16 +106,16 @@ class Monster {
         this.element.style.width = `${this.width}vw`;
         this.element.style.left = this.healthbar_block.style.left = `calc(${this.left}vw - ${this.width / 2}vw)`;
         this.element.style.bottom = `${this.bottom}vh`;
-        h = this.element.offsetHeight;
-        this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${h}px + 10px)`;
+        this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${this.element.offsetHeight}px + 10px)`;
         this.healthbar_block.style.height = `${this.healthbar_height}px`;
-        this.red_healthbar.style.width = `calc(${this.width}vw / ${defaultMonsterHealth} * ${this.health})`;
+        this.red_healthbar.style.width = `calc(${this.width}vw / ${settings.defaultMonsterHealth} * ${this.health})`;
         this.grey_healthbar.style.width = 
-        `calc(${this.width}vw / ${defaultMonsterHealth} * (${defaultMonsterHealth} - ${this.health}))`;
+        `calc(${this.width}vw / ${settings.defaultMonsterHealth} * (${settings.defaultMonsterHealth} - ${this.health}))`;
     }
 
     move() {
         if (this.width === 30) {
+            clearInterval(progressMonsterMove);
             defeat();
         }
         else {
@@ -123,43 +127,19 @@ class Monster {
     }
 }
 
+let monster1 = new Monster(1, 20);
+let monster2 = new Monster(2, 50);
+let monster3 = new Monster(3, 70);
+let ammoBox = new AmmoBox();
+let levelMonsters = 0;
+let levelKilledMonsters = 0;
 
-function showModal(id) {
-    document.getElementById(id).style.display = 'block';
-}
-
-function defeat() {
-    clearInterval(progressMonsterMove);
-    body.style.backgroundColor = 'red';
-    body.style.opacity = 0.3;
-    loadPerson();
-    life -= 1;
-    saveToLocalStorage();
-    if (life === 0) {
-        modifyScore();
-        showModal('modal_1');
+function getMonsterPerLevel() {
+    if (settings.variableMonsterPerLevel) {
+        return getRandomInt(settings.maxMonsterPerLevel - settings.minMonsterPerLevel) + settings.minMonsterPerLevel;
     }
     else {
-        showModal('modal_2');
-    }
-}
-
-function finishLevel() {
-    clearInterval(progressMonsterMove);
-    killedMonsters += monstersPerThisLevel;
-    finishedLevels += 1;
-    saveToLocalStorage();
-    modifyScore();
-    showModal('modal_3');
-}
-
-function modifyLifes() {
-    if (life === 2) {
-        life3.hidden = true;
-    }
-    else if (life === 1) {
-        life3.hidden = true;
-        life2.hidden = true;
+        return settings.monstersPerLevel
     }
 }
 
@@ -168,30 +148,14 @@ function modifyAmmo() {
     elmAmmo.innerHTML = ammo;
 }
 
-function modifyScore() {
-    Array.from(elmFinishedLevels).forEach(elm => {
-        elm.innerHTML = finishedLevels;
-    })
-    Array.from(elmKilledMonsters).forEach(elm => {
-        elm.innerHTML = killedMonsters;
-    })
-}
-
 function modifyHands() {
     document.getElementById('hands_img').src = `clickerImgs/skin/hand${handType}.png`;
 }
-function modifyName(){
+
+function modifyName(userName){
     namePlayer.innerHTML=userName;
   
 }
-
-
-let monster1 = new Monster(elm_id=1, left=20);
-let monster2 = new Monster(elm_id=2, left=50);
-let monster3 = new Monster(elm_id=3, left=70);
-let ammoBox = new AmmoBox();
-let levelMonsters = 0;
-let levelKilledMonsters = 0;
 
 function preloadAudio() {
     [audioHit, audioEmpty, audioReload].forEach(src => {
@@ -199,24 +163,9 @@ function preloadAudio() {
     })
 }
 
-function init() {
-    loadPerson();
-    modifyHands();
-    modifyLifes();
-    modifyAmmo();
-    modifyName();
-    monstersPerThisLevel = getMonsterPerLevel();
-    preloadAudio();
-}
-
-init();
-
 body.addEventListener('click', (e) => {
     if (e.target.id === 'ammo_box') {
         ammoBox.hit()
-        return
-    }
-    if (e.target.id === 'life_box') {
         return
     }
 
@@ -229,8 +178,8 @@ body.addEventListener('click', (e) => {
     ammoInWeapon -= 1;
     audio = new Audio(audioHit);
     audio.currentTime = 0.2;
-    audio.play()
-    modifyAmmo()
+    audio.play();
+    modifyAmmo();
 
     switch (e.target.id) {
         case 'monster1':
@@ -247,7 +196,7 @@ body.addEventListener('click', (e) => {
 
 window.addEventListener('keydown', function (e) {
     if (e.code === 'Space') {
-        ammoInWeapon = Math.min(ammo, defaultAmmoInWeapon);
+        ammoInWeapon = Math.min(ammo, settings.defaultAmmoInWeapon);
         ammo -= ammoInWeapon;
         audio = new Audio(audioReload);
         audio.currentTime = 0.4;
@@ -256,39 +205,38 @@ window.addEventListener('keydown', function (e) {
     }
 }, false);
 
-let progressMonsterMove = setInterval(monsterMove, timeoutStep);
+function init() {
+    if (!Number(localStorage.getItem('life'))) {
+        window.location.href = './index.html'
+    }
+    modifyHands();
+    modifyAmmo();
+    let userName = localStorage.getItem('username');
+    modifyName(userName);
+    monstersPerThisLevel = getMonsterPerLevel();
+    preloadAudio();
+}
+
+init();
+
+let progressMonsterMove = setInterval(monsterMove, settings.timeoutStep);
 
 function monsterMove() {
-    if (!(monster1.isAlive)) {
-        if (Math.random() <= monsterAliveChance) {
-            monster1.spawn()
+    [monster1, monster2, monster3].forEach(monster => {
+        if (!(monster.isAlive)) {
+            if (Math.random() <= settings.monsterAliveChance) {
+                monster.spawn()
+            }
         }
-    }
-    else {
-        monster1.move();
-    }
-    if (!(monster2.isAlive)) {
-        if (Math.random() <= monsterAliveChance) {
-            monster2.spawn()
+        else {
+            monster.move();
         }
-    }
-    else {
-        monster2.move();
-    }
-    if (!(monster3.isAlive)) {
-        if (Math.random() <= monsterAliveChance) {
-            monster3.spawn()
-        }
-    }
-    else {
-        monster3.move();
-    }
+    })
     if (!ammoBox.isActive) {
-        if (Math.random() <= monsterAliveChance) {
+        if (Math.random() <= settings.boxSpawnChance) {
             ammoBox.spawn()
         }
     } else {
         ammoBox.tic()
     }
-
 }
