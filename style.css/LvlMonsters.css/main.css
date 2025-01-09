@@ -39,8 +39,17 @@ body {
     padding: 0px;
     border-radius: 10px;
     font-family: "Rubik Mono One", serif;
+    text-shadow: 3px 3px rgb(238, 0, 255);
 }
-.scoreTxt{
-    font-family: "Rubik Mono One", serif;
 
+.helpBox {
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    background-color: #9000ff46;
+    font-family: "Rubik Mono One", serif;
+    color: aliceblue;
+    font-size: 85%;
+    border-radius: 10px;
+    text-shadow: 2px 2px rgb(234, 0, 255);
 }

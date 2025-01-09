@@ -5,7 +5,6 @@ class playerObserver{
     //виклик оповістити всіх хто підписаний
     broadcast(){
         this.subscribers.forEach(cb => cb());
-        console.log("kjkjkjk")
     }
     subscribe(callback){
         this.subscribers.push(callback);
