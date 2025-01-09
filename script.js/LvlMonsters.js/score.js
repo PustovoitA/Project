@@ -5,6 +5,7 @@ const score = ()=>{
     document.getElementById("killedEnemy").textContent = num
 }
 let numKill = 0;
+
 const numLocal =()=>{
     numKill += 1
     localStorage.setItem(numKill,"hh")
