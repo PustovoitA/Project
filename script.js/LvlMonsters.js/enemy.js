@@ -82,11 +82,9 @@ class Enemy {
 let numEnemy = 1;
 
 const enemyImages = {
-    1: "img/LvlMonster.img/enemy1.png", 2: "img/LvlMonster.img/enemy3.png", 3: "img/LvlMonster.img/enemy4.png", 
-    4: "img/LvlMonster.img/enemy5.png", 5: "img/LvlMonster.img/enemy6.png", 6: "img/LvlMonster.img/enemy1.png", 
-    7: "img/LvlMonster.img/enemy3.png", 8: "img/LvlMonster.img/enemy4.png", 9: "img/LvlMonster.img/enemy5.png", 
-    10: "img/LvlMonster.img/enemy6.png", 11: "img/LvlMonster.img/enemy1.png", 12: "img/LvlMonster.img/enemy3.png", 
-    13: "img/LvlMonster.img/enemy4.png", 14: "img/enemy5.png", 15: "img/enemy6.png",
+    1: "img/LvlMonster.img/enemy1.png", 2: "img/LvlMonster.img/enemy3.png", 3: "img/LvlMonster.img/enemy3.png", 4: "img/LvlMonster.img/enemy5.png", 5: "img/LvlMonster.img/enemy6.png",
+    6: "img/LvlMonster.img/enemy1.png", 7: "img/LvlMonster.img/enemy3.png", 8: "img/LvlMonster.img/enemy3.png", 9: "img/LvlMonster.img/enemy5.png", 10: "img/LvlMonster.img/enemy6.png",
+    11: "img/LvlMonster.img/enemy1.png", 12: "img/LvlMonster.img/enemy3.png", 13: "img/LvlMonster.img/enemy3.png", 14: "img/LvlMonster.img/enemy5.png", 15: "img/LvlMonster.img/enemy6.png",
 };
 
 const spawnEnemies = () => {
