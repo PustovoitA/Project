@@ -22,6 +22,8 @@ const decreaseHP = (damage) => {
     }
 };
 
+let playerHpInterval= setInterval(() => decreaseHP(20), 1500);
+
 const increaseHP = (heal) => {
     playerHP += heal;
     if (playerHP > 300) playerHP = 300; 
@@ -34,7 +36,7 @@ document.addEventListener("keydown", (event) => {
         hpAudio()
     }
 })
- let playerHpInterval= setInterval(() => decreaseHP(20), 1500);
+
 
 
 playerObserv.subscribe(updateHPBar)
