@@ -58,53 +58,9 @@ body{
     width: 100%;
     height: 100%;
 }
-.dialog1 {
-    position: absolute;
-    top:20%;
-    right: 40vw;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap:15px;
-    border: solid 5px red;
-    width: 500px;
-    height: 300px;
-    background-color: cadetblue;
-}  
-.text {
-    display: block;
-    color: red; 
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 50px;  
-    text-align: center;     
-}
-.text1 {
-    display: inline-block;
-    vertical-align: top;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 50px;
-}
-.btn-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    justify-items: center;
-    gap: 50px;
-    margin-top: 10px;
-}
-.btn {
-    width: 150px;
-    height: 40px;
-    background-color: chocolate;
-    color: black;
-   
-}
-.dialog1, .monster, .monster_healthbar_block {
-    display: none;
-}
 
-#modal_2, #modal_3 {
+
+.monster, .monster_healthbar_block {
     display: none;
 }
 

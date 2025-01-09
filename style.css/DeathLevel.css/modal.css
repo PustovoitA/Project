@@ -1,5 +1,6 @@
-.modal-window {
+/* .modal-window {
     display: none;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -8,8 +9,8 @@
     background-color: #00000054;
     opacity: 1;
     z-index: 50;
-}
-.modal-window-item {
+} */
+/* .modal-window-item {
     display: flex;
     align-items: center;
     justify-content: center ;
@@ -31,4 +32,4 @@
     border-radius: 4px;
     padding: 10px 0;
     width: 100px;
-}
+} */
