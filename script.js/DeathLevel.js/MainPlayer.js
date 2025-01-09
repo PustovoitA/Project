@@ -1,4 +1,5 @@
 import { modal } from "./modal.js";
+import { defeat } from "../common.js"
 
 class Player {
     constructor(){
@@ -7,6 +8,7 @@ class Player {
     }
 
     killPlayer=()=>{
+        defeat();
         modal();
     }
 }

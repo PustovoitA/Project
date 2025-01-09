@@ -1,6 +1,7 @@
 import { stamina } from "./stamina.js";
 import { newLevel } from "./levels.js";
 import { modal } from "./modal.js";
+import { saveProgress } from "../common.js";
 class Enemy{
     constructor(){
         this.hpEnemy = 100;
@@ -43,6 +44,7 @@ class Enemy{
         }
         if(this.counter === 15){
             clearTimeout(id);
+            saveProgress(this.counter);
             modal();
         }
         this.Killcounter.textContent = this.counter;

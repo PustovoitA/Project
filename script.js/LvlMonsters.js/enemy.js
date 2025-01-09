@@ -1,6 +1,7 @@
 import { observEnemy } from "./hpBar.enemy.js"
 import { ObserverKill } from "./killEnemObserv.js"
 import { playerObserv } from "./playerHpObserv.js"
+import { saveProgress } from "../common.js";
 
 
 class Enemy {
@@ -90,10 +91,16 @@ const spawnEnemies = () => {
         let enemy = new Enemy(enemyImages[numEnemy] || "default_enemy.png");
         document.getElementById("BoxEnemy").appendChild(enemy.createElement(numEnemy));
         numEnemy++;
+<<<<<<< HEAD
     } else if (killed.textContent === "15") {
+=======
+    } else {
+        saveProgress(numEnemy);
+        clearInterval(spawnEnemiesProcess);
+>>>>>>> main
         document.getElementById("modal-window").style.display = "flex";
     }
 };
 
-setInterval(spawnEnemies, 2000);
+let spawnEnemiesProcess = setInterval(spawnEnemies, 2000);
 

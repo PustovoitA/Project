@@ -1,135 +1,92 @@
-const defaultInitialLife = 3;
-const defaultInitialAmmo = 200;
-const defaultAmmoInWeapon = 12;
-const defaultMonsterHealth = 10;
-const timeoutStep = 1000;
-const monsterAliveChance = 0.1;
-const monstersPerLevel = 10;
-const minMonsterPerLevel = 10;
-const maxMonsterPerLevel = 20;
-const variableMonsterPerLevel = true;
 const debug = true;
 
-const reloadLevel = document.getElementById('levelReload');
-const returnToFirstPage = document.getElementById('returnToFirstPage');
-const exit = document.getElementById('exit');
-const exit1 = document.getElementById('exit1');
-const startGame = document.getElementById('start-game');
-const nextLevel = document.getElementById('nextLevel');
-
-let level = 0;
-let ammo = defaultInitialAmmo;
-let life = defaultInitialLife;
-let ammoInWeapon = defaultAmmoInWeapon;
 let killedMonsters = 0;
 let finishedLevels = 0;
 let userName = '';
-let handType = 1;
+let life = 0;
 
+const life3 = document.getElementById('life_3');
+const life2 = document.getElementById('life_2');
+const life1 = document.getElementById('life_1');
+const elmFinishedLevels = document.getElementById('finished-levels');
+const elmKilledMonsters = document.getElementById('killed-monsters');
+const elmModalTitle = document.getElementById('modal-title')
 
-function getRandomInt(multiplier) {
-    return Math.floor(Math.random() * multiplier)
-}
-
-
-function getMonsterPerLevel() {
-    if (variableMonsterPerLevel) {
-        return getRandomInt(maxMonsterPerLevel - minMonsterPerLevel) + minMonsterPerLevel;
+export function saveProgress(monsterCounter) {
+    loadPerson();
+    killedMonsters += monsterCounter;
+    finishedLevels += 1;
+    saveToLocalStorage(monsterCounter);
+    if (elmFinishedLevels) {
+        elmFinishedLevels.innerText = finishedLevels;
+        elmKilledMonsters.innerText = killedMonsters;
+        elmModalTitle.innerText = 'Congratulations!'
     }
-    else {
-        return monstersPerLevel
+    modifyLifes();
+}
+
+export function defeat() {
+    let body = document.getElementById('container');
+    if (body) {
+        body.style.backgroundColor = 'red';
+        body.style.opacity = 0.5;
     }
-}
-
-
-function getRandomLevel() {
-    return getRandomInt(3) + 1;
-}
-
-function getNextLevel() {
-    return debug ? 1:getRandomLevel();
-}
-
-function saveToLocalStorage() {
-    localStorage.setItem('username', userName);
-    localStorage.setItem('handType', handType);
+    life = Number(localStorage.getItem('life'));
+    life -= 1;
     localStorage.setItem('life', life);
-    localStorage.setItem('ammo', ammo);
-    localStorage.setItem('ammoInWeapon', ammoInWeapon);
-    localStorage.setItem('killedMonsters', killedMonsters);
-    localStorage.setItem('finishedLevels', finishedLevels)
+    modifyLifes(life);
+    if (elmModalTitle) {
+        elmModalTitle.innerText = life ? 'Defeat!': 'Game over!'
+    }
+    if (life === 0) {
+        document.querySelector('.button-repeat').style.display = 'none';
+        document.querySelector('.button-next').style.display = 'none';
+    }
+    showModal('.modal-window')
 }
 
-function createPerson (person_form){
-    userName = person_form.username.value;
-    handType = person_form.hand_type.value;
-    level = getNextLevel();
-    ammo = defaultInitialAmmo;
-    life = defaultInitialLife;
-    ammoInWeapon = defaultAmmoInWeapon;
-    killedMonsters = 0;
-    finishedLevels = 0;
-    saveToLocalStorage();
-    window.location.href = "./level" + level + '.html';
+export function showModal(qs) {
+    document.querySelector(qs).style.display = "flex";
 }
 
-function loadPerson() {
-    if (localStorage.getItem('username')) {
-        userName = localStorage.getItem('username');
-        handType = Number(localStorage.getItem('handType'));
-        life = Number(localStorage.getItem('life'));
-        ammo = Number(localStorage.getItem('ammo'));
-        ammoInWeapon = Number(localStorage.getItem('ammoInWeapon'));
-        killedMonsters = Number(localStorage.getItem('killedMonsters'));
-        finishedLevels = Number(localStorage.getItem('finishedLevels'));
-        if (life > 0) {
-            let btn = document.getElementById('resume-game');
-            if (btn) {
-                btn.style.display = 'block';
-                btn.addEventListener('click',()=> {
-                    level = getNextLevel();
-                    window.location.href = "./level" + level + '.html';
-                })
-            }
+function modifyLifes(life) {
+    if (life1 && life2 && life3) {
+        if (life === 2) {
+            life3.hidden = true;
+        }
+        else if (life === 1) {
+            life3.hidden = true;
+            life2.hidden = true;
+        }
+        else if (life === 0) {
+            life3.hidden = true;
+            life2.hidden = true;
+            life1.hidden = true;
         }
     }
 }
 
-loadPerson();
-
-if (reloadLevel) {
-    reloadLevel.addEventListener ('click', ()=> {
-        window.location.reload();
-    })
+export function getRandomInt(multiplier) {
+    return Math.floor(Math.random() * multiplier)
 }
 
-if (returnToFirstPage) {
-    returnToFirstPage.addEventListener ('click', ()=> {
-        window.location.href = './index.html';
-    })
+export function saveToLocalStorage(killed) {
+    localStorage.setItem('killedMonsters', killed + Number(localStorage.getItem('killedMonsters')));
+    localStorage.setItem('finishedLevels', 1 + Number(localStorage.getItem('finishedLevels')));
 }
 
-if (exit) {
-    exit.addEventListener('click', ()=> {
-        window.location.href = './index.html';
-    })
+export function initLocalStorage(user) {
+    localStorage.setItem('username', user);
+    localStorage.setItem('killedMonsters', 0);
+    localStorage.setItem('finishedLevels', 0);
+    localStorage.setItem('life', 3)
 }
 
-if (exit1) {
-    exit1.addEventListener('click', ()=> {
-        window.location.href = './index.html';
-    })
-}
-
-
-if (startGame) { 
-    startGame.addEventListener ('click', ()=> {
-        window.location.href = `./level${getNextLevel()}.html`;
-    })
-}
-
-if (nextLevel) {
-    nextLevel.addEventListener('click', ()=> {
-        window.location.href = `./level${getNextLevel()}.html`;
-    })
+export function loadPerson() {
+    if (localStorage.getItem('username')) {
+        userName = localStorage.getItem('username');
+        life = Number(localStorage.getItem('life'));
+        killedMonsters = Number(localStorage.getItem('killedMonsters'));
+        finishedLevels = Number(localStorage.getItem('finishedLevels'));
+    }
 }

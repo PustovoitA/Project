@@ -1,5 +1,10 @@
 import { playerObserv } from "./playerHpObserv.js"
+<<<<<<< HEAD
 import { hpAudio} from "./audioBg.js"
+=======
+import { defeat } from "../common.js";
+
+>>>>>>> main
 
 let playerHP = 300;
 const playerHPBar = document.getElementById("hpBar");
@@ -13,6 +18,7 @@ const decreaseHP = (damage) => {
     updateHPBar()
 
     if (playerHP <= 0) {
+        defeat();
         document.getElementById("modal-window").style.display = "flex";
     }
 };
