@@ -1,4 +1,5 @@
 import { playerObserv } from "./playerHpObserv.js"
+import {  hpAudio} from "./audioBg.js"
 import { defeat } from "../common.js";
 
 
