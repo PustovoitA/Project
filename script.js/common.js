@@ -105,19 +105,19 @@ if (reloadLevel) {
 
 if (returnToFirstPage) {
     returnToFirstPage.addEventListener ('click', ()=> {
-        window.location.href = './1.html';
+        window.location.href = './index.html';
     })
 }
 
 if (exit) {
     exit.addEventListener('click', ()=> {
-        window.location.href = './1.html';
+        window.location.href = './index.html';
     })
 }
 
 if (exit1) {
     exit1.addEventListener('click', ()=> {
-        window.location.href = './1.html';
+        window.location.href = './index.html';
     })
 }
 
