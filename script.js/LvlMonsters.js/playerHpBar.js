@@ -16,6 +16,7 @@ const decreaseHP = (damage) => {
     updateHPBar()
 
     if (playerHP <= 0) {
+        clearInterval(playerHpInterval)
         defeat();
         document.getElementById("modal-window").style.display = "flex";
     }
@@ -33,9 +34,8 @@ document.addEventListener("keydown", (event) => {
         hpAudio()
     }
 })
+ let playerHpInterval= setInterval(() => decreaseHP(20), 1500);
 
-
-setInterval(() => decreaseHP(20), 1500);
 
 playerObserv.subscribe(updateHPBar)
 
