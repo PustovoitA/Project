@@ -3,6 +3,7 @@ import {  hpAudio} from "./audioBg.js"
 import { defeat } from "../common.js";
 
 
+
 let playerHP = 300;
 const playerHPBar = document.getElementById("hpBar");
 

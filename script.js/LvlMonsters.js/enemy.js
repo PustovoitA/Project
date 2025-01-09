@@ -2,7 +2,7 @@ import { observEnemy } from "./hpBar.enemy.js"
 import { ObserverKill } from "./killEnemObserv.js"
 import { playerObserv } from "./playerHpObserv.js"
 import { saveProgress } from "../common.js";
-
+import { numLocal } from "./score.js";
 
 class Enemy {
     constructor(imageSrc, initialHP = 100) {
@@ -69,6 +69,7 @@ class Enemy {
         if (this.hp <= 0) {
             this.element.remove();
             ObserverKill.broadcast()
+            numLocal()
         }
     }
 

@@ -6,7 +6,7 @@ const score = ()=>{
 }
 let numKill = 0;
 
-const numLocal =()=>{
+export const numLocal =()=>{
     numKill += 1
     localStorage.setItem(numKill,"hh")
     //console.log(localStorage)
