@@ -8,7 +8,7 @@ class Player {
     }
 
     killPlayer=()=>{
-        // defeat();
+        defeat();
         modal();
     }
 }
