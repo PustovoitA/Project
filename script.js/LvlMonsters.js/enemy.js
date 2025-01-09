@@ -1,6 +1,7 @@
 import { observEnemy } from "./hpBar.enemy.js"
 import { ObserverKill } from "./killEnemObserv.js"
 import { playerObserv } from "./playerHpObserv.js"
+import { saveProgress } from "../common.js";
 
 class Enemy {
     constructor(imageSrc, initialHP = 100) {
@@ -92,10 +93,12 @@ const spawnEnemies = () => {
         document.getElementById("BoxEnemy").appendChild(enemy.createElement(numEnemy));
         numEnemy++;
     } else {
+        saveProgress(numEnemy);
+        clearInterval(spawnEnemiesProcess);
         document.getElementById("modal-window").style.display = "flex";
     }
 
 };
 
-setInterval(spawnEnemies, 2000);
+let spawnEnemiesProcess = setInterval(spawnEnemies, 2000);
 
