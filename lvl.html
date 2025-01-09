@@ -52,18 +52,25 @@
 
 
     </div>
-    <div id="modal-window" class="modal-window">
+    <div class="modal-window" id="modal-window">
+        <div class="modal-info">
+            <span class="modal-title" id="modal-title">Game over!</span>
+            <div class="lifes">
+                <div class="life" id = "life_1"></div>
+                <div class="life" id = "life_2"></div>
+                <div class="life" id = "life_3"></div>
+            </div>
+            
+        </div>
         <div class="modal-window-item">
-            <div class="score-container">
-                <span class="score-text">Ваш рахунок: <b id="scoreTxt"> </b></span>
-            </div>
-            <div class="buttons-container">
-                <a class="button-repeat" href="lvl.html">Repeat</a>
-                <a class="button-next" href="DeathLevel.html">Next</a>
-            </div>
+            <span class="modal-info-text">Total levels: </span><span class="modal-info-text" id="finished-levels"></span>
+            <span class="modal-info-text">Total kills: </span><span class="modal-info-text" id="killed-monsters"></span>
+            <a class="button-repeat" href="lvl.html">Repeat</a>
+            <a class="button-next" href="DeathLevel.html">Next</a>
+            <a class="button-exit" href="index.html">Exit</a>
         </div>
     </div>
 
 </body>
-
+<script type="module" src="./script.js/FirstLevel/mosterEngine.js"></script>
 </html>
