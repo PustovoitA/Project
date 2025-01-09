@@ -20,6 +20,7 @@
     border-radius: 15px;
     gap: 15px;
     background-color: #fff;
+    text-shadow: 2px 2px rgb(247, 139, 255);
 }
 
 .modal-window-item a {
@@ -59,7 +60,6 @@
     padding: 10px 20px;
     text-align: center;
     box-shadow: 0 0 10px 0 #000;
-    border-radius: 4px;
     padding: 10px 0;
     width: 100px;
 }

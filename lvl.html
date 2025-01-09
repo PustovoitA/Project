@@ -11,28 +11,25 @@
     <link rel="stylesheet" href="style.css/LvlMonsters.css/gamer.css">
     <link rel="stylesheet" href="style.css/LvlMonsters.css/main.css">
 
-   <script type="module" src="script.js/LvlMonsters.js/audioBg.js"></script>
+    <script type="module" src="script.js/LvlMonsters.js/audioBg.js"></script>
     <script type="module" src="script.js/LvlMonsters.js/enemy.js"></script>
     <script type="module" src="script.js/LvlMonsters.js/hpBar.enemy.js"></script>
     <script type="module" src="script.js/LvlMonsters.js/playerHpBar.js"></script>
     <script type="module" src="script.js/LvlMonsters.js/score.js"></script>
-    <style>
-       
-    </style>
 </head>
 
 <body class="flex column">
 
     <audio id="audioFon" src="audio/LvlMonsters/bgMusic.mp3"></audio>
     <audio id="audioShock" src="audio/LvlMonsters/shock.mp3"></audio>
-    <audio id="hpAudio" src="audio/LvlMonsters/igrovaya-sreda-audio-energoobespechenie-audio-material-39368.mp3"></audio>
-
+    <audio id="hpAudio"
+        src="audio/LvlMonsters/igrovaya-sreda-audio-energoobespechenie-audio-material-39368.mp3"></audio>
 
     <div class="infoHp flex">
         <div class="hpBox ">
             <div class="hpBar-1"> </div>
             <div id="hpBar"> </div>
-          
+
         </div>
         <span class="score flex">
             <b class="scoreTxt">Score:</b>
@@ -41,8 +38,12 @@
     </div>
     <div class="main flex column" id="main">
         <img class="hands" src="img/LvlMonster.img/pngegg.png" alt="">
-        <div id="BoxEnemy"></div>
-
+        <div id="BoxEnemy">
+            <div class="helpBox flex column">
+                <b class="help"> Space - add health</b>
+                <b class="help">Right click - 2x damage </b>
+            </div>
+        </div>
 
     </div>
     <div id="modal-window" class="modal-window">
