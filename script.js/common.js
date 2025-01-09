@@ -22,15 +22,15 @@ export function saveProgress(monsterCounter) {
         elmKilledMonsters.innerText = killedMonsters;
         elmModalTitle.innerText = 'Congratulations!'
     }
-    modifyLifes();
+    modifyLifes(life);
 }
 
 export function defeat() {
     let body = document.getElementById('container');
-    if (body) {
-        body.style.backgroundColor = 'red';
-        body.style.opacity = 0.5;
-    }
+    // if (body) {
+    //     body.style.backgroundColor = 'red';
+    //     body.style.opacity = 0.5;
+    // }
     life = Number(localStorage.getItem('life'));
     life -= 1;
     localStorage.setItem('life', life);
@@ -38,7 +38,7 @@ export function defeat() {
     if (elmModalTitle) {
         elmModalTitle.innerText = life ? 'Defeat!': 'Game over!'
     }
-    if (life === 0) {
+    if (life < 1) {
         document.querySelector('.button-repeat').style.display = 'none';
         document.querySelector('.button-next').style.display = 'none';
     }

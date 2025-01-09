@@ -16,7 +16,7 @@ const decreaseHP = (damage) => {
     updateHPBar()
 
     if (playerHP <= 0) {
-        defeat();
+        // defeat();
         document.getElementById("modal-window").style.display = "flex";
     }
 };
