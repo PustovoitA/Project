@@ -38,7 +38,7 @@ export function defeat() {
     if (elmModalTitle) {
         elmModalTitle.innerText = life ? 'Defeat!': 'Game over!'
     }
-    if (life === 0) {
+    if (life < 1) {
         document.querySelector('.button-repeat').style.display = 'none';
         document.querySelector('.button-next').style.display = 'none';
     }
