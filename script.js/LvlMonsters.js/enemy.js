@@ -93,7 +93,7 @@ const spawnEnemies = () => {
         document.getElementById("BoxEnemy").appendChild(enemy.createElement(numEnemy));
         numEnemy++;
     } else {
-        saveProgress(numEnemy);
+        // saveProgress(numEnemy);
         clearInterval(spawnEnemiesProcess);
         document.getElementById("modal-window").style.display = "flex";
     }

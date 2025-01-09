@@ -22,15 +22,15 @@ export function saveProgress(monsterCounter) {
         elmKilledMonsters.innerText = killedMonsters;
         elmModalTitle.innerText = 'Congratulations!'
     }
-    modifyLifes();
+    modifyLifes(life);
 }
 
 export function defeat() {
     let body = document.getElementById('container');
-    if (body) {
-        body.style.backgroundColor = 'red';
-        body.style.opacity = 0.5;
-    }
+    // if (body) {
+    //     body.style.backgroundColor = 'red';
+    //     body.style.opacity = 0.5;
+    // }
     life = Number(localStorage.getItem('life'));
     life -= 1;
     localStorage.setItem('life', life);
