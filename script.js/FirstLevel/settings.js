@@ -1,0 +1,12 @@
+export const defaultInitialAmmo = 100;
+export const defaultAmmoInWeapon = 12;
+export const defaultMonsterHealth = 10;
+export const timeoutStep = 500;
+export const monsterAliveChance = 0.1;
+export const boxSpawnChance = 0.1;
+export const boxLiveTime = 10;
+export const boxAmmo = 10;
+export const monstersPerLevel = 10;
+export const minMonsterPerLevel = 10;
+export const maxMonsterPerLevel = 15;
+export const variableMonsterPerLevel = true;

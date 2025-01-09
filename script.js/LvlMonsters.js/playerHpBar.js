@@ -1,4 +1,5 @@
 import { playerObserv } from "./playerHpObserv.js"
+import { defeat } from "../common.js";
 
 
 let playerHP = 300;
@@ -13,6 +14,7 @@ const decreaseHP = (damage) => {
     updateHPBar()
 
     if (playerHP <= 0) {
+        defeat();
         document.getElementById("modal-window").style.display = "flex";
     }
 };

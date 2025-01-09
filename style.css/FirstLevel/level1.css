@@ -1,5 +1,5 @@
 body{
-    background-image: url(../clickerImgs/lvl1/desert-landscape-cactuses-illustration-background-600nw-2393586211.png);
+    background-image: url(../../clickerImgs/lvl1/desert-landscape-cactuses-illustration-background-600nw-2393586211.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
@@ -10,7 +10,7 @@ body{
 .life {
     width: 50px;
     height: 50px;
-    background-image: url(../clickerImgs/heart.png);
+    background-image: url(../../clickerImgs/heart.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -26,7 +26,7 @@ body{
 .ammoText {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 50px;
-    color: darkorange;
+    color: rgb(190, 42, 42);
 }
 #hands_img {
     height: 25vh;
@@ -144,3 +144,21 @@ body{
     font-size: 40px;
 
 }
+.help {
+    position: absolute;
+    color: rgb(190, 42, 42);
+    /* border: solid 3px burlywood; */
+    /* background-color: burlywood; */
+    font-size: 24px;
+    right: 250px;
+    /* right: 30px; */
+  }
+  .help1 {
+    top: 20px;
+  }
+  /* .info {
+    top: 50px;
+  } */
+  .parachute {
+    top: 40px;
+  }
