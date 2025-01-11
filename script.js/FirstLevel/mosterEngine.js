@@ -1,5 +1,7 @@
 import * as settings from './settings.js'
 import { defeat, saveProgress, getRandomInt, showModal } from '../common.js';
+import { HpBarObserver } from './HpBarObserver.js';
+import { drawHpBar } from './utils.js';
 
 let ammo = settings.defaultInitialAmmo;
 let ammoInWeapon = settings.defaultAmmoInWeapon;
@@ -50,13 +52,14 @@ class AmmoBox {
 
 class Monster {
     constructor(elm_id=1, left=20) {
+        this.elm_id = elm_id;
         this.isAlive = false;
-        this.left = left;
+        this.initial_left = this.left = left;
         this.bottom = 30;
         this.element = document.getElementById(`monster${elm_id}`);
         this.healthbar_block = document.getElementById(`monster_healthbar_block_${elm_id}`);
         this.red_healthbar = document.getElementById(`health_red_${elm_id}`);
-        this.grey_healthbar = document.getElementById(`health_grey_${elm_id}`);
+        HpBarObserver.subscribe(this);
     }
 
     spawn() {
@@ -68,15 +71,15 @@ class Monster {
         this.health = settings.defaultMonsterHealth;
         this.width = 5;
         this.bottom = 25;
+        this.left = this.initial_left;
         this.healthbar_height = 10;
-        this.red_healthbar.style.width = `${this.width}vw`;
-        this.grey_healthbar.style.width = 0;
+        drawHpBar(this);
 
         this.draw();
 
         this.element.src = `clickerImgs/lvl1/${getRandomInt(3) + 1}.png`
         this.element.style.display = 'block';
-        this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${this.element.offsetHeight}px + 10px)`;
+        drawHpBar(this);
         this.healthbar_block.style.display = 'block';
     }
 
@@ -85,9 +88,7 @@ class Monster {
         if (this.health === 0) {
             this.kill()
         }
-        this.red_healthbar.style.width = `calc(${this.width}vw / ${settings.defaultMonsterHealth} * ${this.health})`;
-        this.grey_healthbar.style.width = 
-        `calc(${this.width}vw / ${settings.defaultMonsterHealth} * (${settings.defaultMonsterHealth} - ${this.health}))`;
+        drawHpBar(this)
     }
 
     kill() {
@@ -104,13 +105,20 @@ class Monster {
 
     draw() {
         this.element.style.width = `${this.width}vw`;
-        this.element.style.left = this.healthbar_block.style.left = `calc(${this.left}vw - ${this.width / 2}vw)`;
+        this.element.style.left = `${this.left}vw`;
         this.element.style.bottom = `${this.bottom}vh`;
-        this.healthbar_block.style.bottom = `calc(${this.bottom}vh + ${this.element.offsetHeight}px + 10px)`;
-        this.healthbar_block.style.height = `${this.healthbar_height}px`;
-        this.red_healthbar.style.width = `calc(${this.width}vw / ${settings.defaultMonsterHealth} * ${this.health})`;
-        this.grey_healthbar.style.width = 
-        `calc(${this.width}vw / ${settings.defaultMonsterHealth} * (${settings.defaultMonsterHealth} - ${this.health}))`;
+    }
+
+    horizontalShift() {
+        switch (this.elm_id) {
+            case 1:
+                return 0
+            case 2:
+                return -0.5
+            case 3:
+                return -1
+        }
+
     }
 
     move() {
@@ -120,6 +128,7 @@ class Monster {
         }
         else {
             this.width += 1;
+            this.left += this.horizontalShift();
             this.bottom -= 0.5;
             this.healthbar_height += 1;
             this.draw()
@@ -130,6 +139,7 @@ class Monster {
 let monster1 = new Monster(1, 20);
 let monster2 = new Monster(2, 50);
 let monster3 = new Monster(3, 70);
+
 let ammoBox = new AmmoBox();
 let levelMonsters = 0;
 let levelKilledMonsters = 0;
@@ -232,6 +242,7 @@ function monsterMove() {
             monster.move();
         }
     })
+    HpBarObserver.broadcast();
     if (!ammoBox.isActive) {
         if (Math.random() <= settings.boxSpawnChance) {
             ammoBox.spawn()
