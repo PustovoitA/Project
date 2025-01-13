@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css/app.css">
+    <script type="module" src="./script.js/DeathLevel.js/app.js"></script>
     <title>DeathLevel</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
                 </div>
             </div>
             <div class="help">
-                <p>Attack - LKM</p>
+                <div>Attack - LKM</div>
             </div>
         </header>
         <main class="main">
@@ -51,16 +52,23 @@
         </footer>
     </div>
 
-    <div class="modal-window">
+    <div class="modal-window" id="modal-window">
+        <div class="modal-info">
+            <span class="modal-title" id="modal-title">Game over!</span>
+            <div class="lifes">
+                <div class="life" id = "life_1">❤️</div>
+                <div class="life" id = "life_2">❤️</div>
+                <div class="life" id = "life_3">❤️</div>
+            </div>
+            <span class="modal-info-text">Total levels: </span><span class="modal-info-text" id="finished-levels"></span>
+            <span class="modal-info-text">Total kills: </span><span class="modal-info-text" id="killed-monsters"></span>
+        </div>
         <div class="modal-window-item">
-            <a class="button-repeat" href="./DeathLevel.html">Repeat</a>
-            <a class="button-next" href="./level1.html">Next</a>
+            <a class="button-repeat" href="DeathLevel.html">Repeat</a>
+            <a class="button-next" href="level1.html">Next</a>
+            <a class="button-exit" href="index.html">Exit</a>
         </div>
     </div>
 
 </body>
-    <script type="module" src="./script.js/DeathLevel.js/enemyHit.js"></script>
-    <script type="module" src="./script.js/DeathLevel.js/LocalStorage.js"></script>
-    <script type="module" src="./script.js/DeathLevel.js/shot.js"></script>
-    <script type="module" src="./script.js/DeathLevel.js/backgroundAudio.js"></script>
 </html>

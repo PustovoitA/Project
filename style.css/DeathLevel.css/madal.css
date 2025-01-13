@@ -1,0 +1,63 @@
+.modal-window {
+    display: none;
+    position: absolute;
+    top:20%;
+    right: 40vw;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    gap:15px;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    background-color: #ffffff;
+    opacity: 1;
+    z-index: 50;
+
+    font-family: "Rubik Mono One", serif;
+    font-weight: 400;
+
+}
+.modal-info {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    color: black;
+}
+.modal-title {
+    display: block;
+    color: red; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 45px;  
+    text-align: center;    
+}
+.lifes {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    justify-items: center;
+}
+.modal-info-text {
+   text-align: center;
+
+}
+.modal-window-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 30px;
+}
+.button-repeat, .button-next, .button-exit {
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000;
+    border-radius: 4px;
+    width: 100px;
+    text-decoration: none;
+    color: #000000;
+    background-color: burlywood;
+    padding: 8px 0;
+}
