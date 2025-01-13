@@ -1,6 +1,7 @@
 import { playerObserv } from "./playerHpObserv.js"
-import {  hpAudio} from "./audioBg.js"
+import { hpAudio } from "./audioBg.js"
 import { defeat } from "../common.js";
+import { spawnEnemiesProcess } from "./enemy.js";
 
 
 
@@ -16,13 +17,13 @@ const decreaseHP = (damage) => {
     updateHPBar()
 
     if (playerHP <= 0) {
-        clearInterval(playerHpInterval)
         defeat();
         document.getElementById("modal-window").style.display = "flex";
+        clearInterval(spawnEnemiesProcess);
+        clearInterval(playerHpInterval);
     }
 };
-
-let playerHpInterval= setInterval(() => decreaseHP(20), 1500);
+export const playerHpInterval = setInterval(() => decreaseHP(20), 1500);
 
 const increaseHP = (heal) => {
     playerHP += heal;

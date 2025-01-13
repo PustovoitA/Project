@@ -20,7 +20,7 @@
     border-radius: 15px;
     gap: 15px;
     background-color: #fff;
-    text-shadow: 2px 2px rgb(247, 139, 255);
+    text-shadow: 2px 1px rgb(247, 139, 255);
 }
 
 .modal-window-item a {
@@ -62,4 +62,11 @@
     box-shadow: 0 0 10px 0 #000;
     padding: 10px 0;
     width: 100px;
+}
+.life {
+    width: 50px;
+    height: 50px;
+    background-image: url(../../clickerImgs/heart.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
