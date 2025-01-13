@@ -44,7 +44,7 @@ class Enemy{
         }
         if(this.counter === 15){
             clearTimeout(id);
-            // saveProgress(this.counter);
+            saveProgress(this.counter);
             modal();
         }
         this.Killcounter.textContent = this.counter;
