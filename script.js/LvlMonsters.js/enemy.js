@@ -2,6 +2,7 @@ import { observEnemy } from "./hpBar.enemy.js"
 import { ObserverKill } from "./killEnemObserv.js"
 import { playerObserv } from "./playerHpObserv.js"
 import { saveProgress } from "../common.js";
+import { playerHpInterval } from "./playerHpBar.js";
 
 
 class Enemy {
@@ -86,17 +87,18 @@ const enemyImages = {
     11: "img/LvlMonster.img/enemy1.png", 12: "img/LvlMonster.img/enemy3.png", 13: "img/LvlMonster.img/enemy3.png", 14: "img/LvlMonster.img/enemy5.png", 15: "img/LvlMonster.img/enemy6.png",
 };
 let killed = document.getElementById("killedEnemy")
+
 const spawnEnemies = () => {
     if (numEnemy < 16) {
         let enemy = new Enemy(enemyImages[numEnemy] || "default_enemy.png");
         document.getElementById("BoxEnemy").appendChild(enemy.createElement(numEnemy));
         numEnemy++;
-    } else if(killed.textContent === "15" ) {
-        // saveProgress(numEnemy);
-        clearInterval(spawnEnemiesProcess);
+    } else if (killed.textContent === "15") {
+        saveProgress(15);
         document.getElementById("modal-window").style.display = "flex";
+        clearInterval(playerHpInterval)
+        clearInterval(spawnEnemiesProcess)
     }
 };
 
-let spawnEnemiesProcess = setInterval(spawnEnemies, 2000);
-
+export const spawnEnemiesProcess = setInterval(spawnEnemies, 2000);
